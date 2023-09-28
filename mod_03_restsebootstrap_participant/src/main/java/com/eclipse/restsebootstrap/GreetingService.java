@@ -15,8 +15,8 @@ import java.time.LocalDateTime;
  * @author Ken Fogel
  */
 /*
-This is the path to the service method. It follows the Application path in 
-the URL as in http://localhost:8080/services/hello 
+This is the path to the service method. It follows the Application path in the 
+URL as in http://localhost:8080/services/hello 
 */
 @Path("hello")
 public class GreetingService {
