@@ -1,5 +1,8 @@
 package com.eclipse.restserver.bean;
 
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Named;
+
 /**
  * Here is the Java Bean for the Compound Interest. The 'result' field is a
  * String so that if any of the input values are out of range, as determined in
@@ -7,6 +10,7 @@ package com.eclipse.restserver.bean;
  *
  * @author Ken Fogel
  */
+@RequestScoped
 public class CompoundBean {
 
     private double principal;
@@ -23,7 +27,8 @@ public class CompoundBean {
         this.time = time;
         this.result = "xxxxx";
     }
-
+    
+    public CompoundBean() {}
     public double getPrincipal() {
         return principal;
     }

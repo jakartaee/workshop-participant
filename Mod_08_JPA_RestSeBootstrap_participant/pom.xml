@@ -125,7 +125,7 @@
                         <!-- As Maven will produce an assembled and an 
                         unassembled jar file the following argument selects 
                         the assembled jar to be run by Maven -->
-                        <argument>target\${project.artifactId}.jar</argument>
+                        <argument>target/${project.artifactId}.jar</argument>
                     </arguments>
                     <!-- The type of executable -->
                     <executable>java</executable>

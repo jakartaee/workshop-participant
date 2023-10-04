@@ -11,7 +11,7 @@ import java.text.NumberFormat;
 /**
  * This is the path to the service method. It follows the Application path in
  * the URL as in
- * http://localhost:8080/Mod_04_RestServer_presenter/services/compoundGet
+ * http://localhost:8080/Mod_04_RestServer_participant/services/compound
  */
 @Path("compound")
 /**
@@ -43,11 +43,11 @@ public class CompoundInterestService {
      * This method can receive the value from a query string.The annotation
      * {@literal @}QueryParam("principal") indicates that the query string is
      * expected to have a "principal=" as in
-     * http://localhost:8080/Mod_04_RestServer_presenter/services/compoundGet?principal=100.00&annualInterestRate=0.05&compoundPerTimeUnit=12.0&time=5.0
+     * http://localhost:8080/Mod_04_RestServer_participant/services/compoundGet?principal=100.00&annualInterestRate=0.05&compoundPerTimeUnit=12.0&time=5.0
      * You can use the line above minus the asterisk in a web browser. If you
      * are using curl the text beginning with http until the URL must be in
      * quotation marks. This is necessary due to the decimal points. curl
-     * "http://localhost:8080/Mod_04_RestServer_presenter/services/compoundGet?principal=100.00&annualInterestRate=0.05&compoundPerTimeUnit=12.0&time=5.0"
+     * "http://localhost:8080/Mod_04_RestServer_participant/services/compoundGet?principal=100.00&annualInterestRate=0.05&compoundPerTimeUnit=12.0&time=5.0"
      *
      * @param principal
      * @param annualInterestRate
@@ -82,20 +82,19 @@ public class CompoundInterestService {
      * curl -i -X POST --header "Content-Type: application/json" --data
      * "{ \"principal\": 100.00, \"annualInterestRate\": 0.05,
      * \"compoundPerTimeUnit\": 12.0, \"time\": 5.0, \"result\": \"0.0\" }"
-     * http://localhost:8080/Mod_04_RestServer_presenter/services/compound
+     * http://localhost:8080/Mod_04_RestServer_participant/services/compound
      *
      * Linux/MacOS: 
      * curl -i -X POST --header "Content-Type: application/json" --data 
      * '{ "principal": 100.00, "annualInterestRate": 0.05, 
      * "compoundPerTimeUnit": 12.0, "time": 5.0, "result": "0.0" }' 
-     * http://localhost:8080/Mod_04_RestServer_presenter/services/compound
+     * http://localhost:8080/Mod_04_RestServer_participant/services/compound
      *
      * @param compoundBean a CompoundBean object received as JSON and converted
      * to an object
      * @return the JSON serialization of the CompoundBean object
      */
-    // Request method type
-    @POST
+    @POST // Request Type
     public CompoundBean postCompoundInterest(CompoundBean compoundBean) {
         calculateCompoundInterest(compoundBean);
         return compoundBean;

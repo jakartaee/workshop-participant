@@ -7,7 +7,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.aggregator.ArgumentsAccessor;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junitpioneer.jupiter.DefaultLocale;
 
 /**
  * This is a JUnit5 parameterized test class. In this workshop you are required
@@ -19,6 +21,11 @@ import org.junit.jupiter.params.provider.CsvSource;
  *
  * @author Ken Fogel
  */
+/*
+language = "de" German meaning that the result string will have a comma as the decimal point
+language = "us" USA meaning  that the result string will have a period as the decimal point
+ */
+@DefaultLocale(language = "us")
 public class ParameterizedTests {
 
     private CompoundInterest calc;
@@ -36,9 +43,9 @@ public class ParameterizedTests {
     /**
      * The list of values to use in testing organized in CSV format and the
      * method to use for each test.
-     * 
-     * Select the CsvSource based on what the decimal point is in your locale
      *
+     * Select the CsvSource based on what the decimal point is in your locale
+     * stated in DefaultLocale in the line above the class definition.
      */
     @ParameterizedTest
     // Decimal point is a period
@@ -54,14 +61,14 @@ public class ParameterizedTests {
     """)
     // Decimal point is a comma
 //    @CsvSource(delimiter = '|', textBlock = """
-//        100,0 | 0,05 | 12,0 | 5,0 | 128,34
-//        234,0 | 0,08 | 12,0 | 3,0 | 297,24
-//        1233,0 | 0,03 | 12,0 | 10,0 | 1663,75
-//        34,0 | 0,13 | 12,0 | 6,0 | 73,86
-//        -1,0 | 0,05 | 12,0 | 5,0 | xxxxx
-//        100,0 | -1,0 | 12,0 | 5,0| xxxxx
-//        100,0 | 0,05 | -1,0 | 5,0 | xxxxx
-//        100,0 | 0,05 | 12,0 | -1,0 | xxxxx
+//        100.0 | 0.05 | 12.0 | 5.0 | 128,34
+//        234.0 | 0.08 | 12.0 | 3.0 | 297,24
+//        1233.0 | 0.03 | 12.0 | 10.0 | 1663,75
+//        34.0 | 0.13 | 12.0 | 6.0 | 73,86
+//        -1.0 | 0.05 | 12.0 | 5.0 | xxxxx
+//        100.0 | -1.0 | 12.0 | 5.0| xxxxx
+//        100.0 | 0.05 | -1.0 | 5.0 | xxxxx
+//        100.0 | 0.05 | 12.0 | -1.0 | xxxxx
 //    """)
 
     /**

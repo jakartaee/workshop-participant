@@ -42,11 +42,11 @@ public class CompoundInterestService {
      * This method can receive the value from a query string.The annotation
      * {@literal @}QueryParam("principle") indicates that the query string is
      * expected to have a "?principle=" as in
-     * http://localhost:8080/services/compound?principle=100.00&annualInterestRate=0.05&compoundPerTimeUnit=12.0&time=5.0
+     * http://localhost:8080/Mod_06_RestServer/services/compound?principle=100.00&annualInterestRate=0.05&compoundPerTimeUnit=12.0&time=5.0
      * You can use the line above minus the asterisk in a web browser. If you
      * are using curl the text beginning with http until the URL must be in
      * quotation marks. This is necessary due to the decimal points.
-     * curl "http://localhost:8080/services/compound?principle=100.00&annualInterestRate=0.05&compoundPerTimeUnit=12.0&time=5.0"
+     * curl "http://localhost:8080/Mod_06_RestServer/services/compound?principle=100.00&annualInterestRate=0.05&compoundPerTimeUnit=12.0&time=5.0"
      *
      * @param principal
      * @param annualInterestRate
@@ -64,7 +64,7 @@ public class CompoundInterestService {
                 compoundPerTimeUnit, time);
         calculateCompoundInterest(compoundBean);
 
-        return "Rest01 - Compound Interest:\n" + compoundBean.toString();
+        return "Compound Interest:\n" + compoundBean.toString();
     }
     
 

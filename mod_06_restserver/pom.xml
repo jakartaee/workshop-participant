@@ -29,7 +29,7 @@
     <packaging>war</packaging>
     
     <!-- A description of the program -->
-    <description>A basic server-side rest service using GlassFish</description>
+    <description>A server-side rest service using GlassFish</description>
 
     <!-- properties are values that plugins can use by refering to the tag name. -->
     <properties>
