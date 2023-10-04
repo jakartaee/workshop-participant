@@ -7,6 +7,7 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.QueryParam;
 import java.text.NumberFormat;
+import java.util.Locale;
 
 /**
  * This is the path to the service method. It follows the Application path in
@@ -32,7 +33,7 @@ public class CompoundInterestService {
      * Initialize and configure the numberFormat object
      */
     public CompoundInterestService() {
-        numberFormat = NumberFormat.getNumberInstance();
+        numberFormat = NumberFormat.getNumberInstance(Locale.US);
         numberFormat.setMaximumFractionDigits(2);
         numberFormat.setMinimumFractionDigits(2);
         numberFormat.setGroupingUsed(false);

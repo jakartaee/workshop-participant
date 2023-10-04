@@ -31,18 +31,19 @@
     <!-- A description of the program -->
     <description>A basic multipart server-side rest service using GlassFish</description>
 
-    <!-- properties are values that plugins can use by refering to the tag name. 
-    For example, the value in java.version, 17, is refered to as ${java.version} -->
+    <!-- properties are values that plugins can use by refering to the tag name. -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <jakartaee-api.version>10.0.0</jakartaee-api.version>
     </properties>
 
     <dependencies>
         <!-- We only need the API dependency because all required libraries are 
-             part of GlassFish and so do not require to be added to the 
-             project's war file. -->
+        part of GlassFish and so do not require to be added to the 
+        project's war file. -->
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>

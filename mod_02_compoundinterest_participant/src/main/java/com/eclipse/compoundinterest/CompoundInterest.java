@@ -2,6 +2,7 @@ package com.eclipse.compoundinterest;
 
 import com.eclipse.compoundinterest.bean.CompoundBean;
 import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.logging.Logger;
 
 /**
@@ -21,7 +22,7 @@ public class CompoundInterest {
      * Initialize and configure the numberFormat object
      */
     public CompoundInterest() {
-        numberFormat = NumberFormat.getNumberInstance();
+        numberFormat = NumberFormat.getNumberInstance(Locale.US);
         numberFormat.setMaximumFractionDigits(2);
         numberFormat.setMinimumFractionDigits(2);
         numberFormat.setGroupingUsed(false);
@@ -42,7 +43,7 @@ public class CompoundInterest {
     /**
      * Here we validate the four fields in the CompoundBean. If any fail
      * validation then the result field of the CompoundBean will be set to
-     * 'invalid'
+     * 'Invalid'
      *
      * @param compoundBean The data to be validated
      * @return Were all the fields in the CompoundBean valid? true or false

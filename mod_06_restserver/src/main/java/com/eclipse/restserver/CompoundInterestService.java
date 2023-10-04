@@ -6,6 +6,7 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.QueryParam;
 import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.logging.Level;
 
 import java.util.logging.Logger;
@@ -33,7 +34,7 @@ public class CompoundInterestService {
      * Initialize and configure the numberFormat object
      */
     public CompoundInterestService() {
-        numberFormat = NumberFormat.getNumberInstance();
+        numberFormat = NumberFormat.getNumberInstance(Locale.US);
         numberFormat.setMaximumFractionDigits(2);
         numberFormat.setMinimumFractionDigits(2);
         numberFormat.setGroupingUsed(false);

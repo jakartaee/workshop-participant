@@ -34,11 +34,12 @@
     <!-- A description of the program -->
     <description>A basic desktop web service client to upload a file</description>
 
-    <!-- properties are values that plugins can use by refering to the tag name. 
-    For example, the value in java.version, 17, is refered to as ${java.version} -->
+    <!-- properties are values that plugins can use by refering to the tag name. -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <exec.mainClass>com.eclipse.restclient.RestClient</exec.mainClass>
     </properties>
     

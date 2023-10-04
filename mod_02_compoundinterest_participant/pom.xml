@@ -30,11 +30,12 @@
     <!-- A description of the program -->
     <description>This code calculates compound interest and unit tests the calculations.</description>
 
-    <!-- properties are values that plugins can use by refering to the tag name. 
-    For example, the value in java.version, 17, is refered to as ${java.version} -->
+    <!-- properties are values that plugins can use by referring to the tag name. -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
     <!-- Here we list the libraries that must be downloaded and added to your 
@@ -74,5 +75,14 @@
         'exec:exec" will execute your program is a new JVM. -->
         <defaultGoal>clean compile test</defaultGoal>
         <finalName>${project.artifactId}</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+            </plugin>
+        </plugins>
+		
     </build>
 </project>

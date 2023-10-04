@@ -30,10 +30,12 @@
     <!-- A description of the program -->
     <description>A basic SE Bootsrap web service project using jersey or RESTEasy</description>
 
-    <!-- properties are values that plugins can use by refering to the tag name. -->
+    <!-- properties are values that plugins can use by referring to the tag name. -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <jakartaee-api.version>10.0.0</jakartaee-api.version>
         <exec.mainClass>com.eclipse.restsebootstrap.RestBootstrap</exec.mainClass>
     </properties>
@@ -117,7 +119,7 @@
         <plugins>
             <plugin>
                 <!-- This plugin assembles all the dependencies and the compiled
-                     jar into a single executable file.  -->
+                jar into a single executable file.  -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
@@ -143,7 +145,7 @@
             </plugin>
             <plugin>
                 <!--  Enables Maven to run the program as long as any previous 
-                      goals, such as compile or test, were all successful. -->
+                goals, such as compile or test, were all successful. -->
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
