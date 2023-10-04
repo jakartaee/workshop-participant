@@ -15,7 +15,6 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.QueryParam;
 import java.text.NumberFormat;
-import java.util.Locale;
 import java.util.logging.Level;
 
 import java.util.logging.Logger;
@@ -52,7 +51,7 @@ public class CompoundInterestService {
      * Initialize and configure the numberFormat object
      */
     public CompoundInterestService() {
-        numberFormat = NumberFormat.getNumberInstance(Locale.US);
+        numberFormat = NumberFormat.getNumberInstance();
         numberFormat.setMaximumFractionDigits(2);
         numberFormat.setMinimumFractionDigits(2);
         numberFormat.setGroupingUsed(false);
@@ -80,7 +79,7 @@ public class CompoundInterestService {
     /**
      * Here is the method that calculates the result. If any of the fields in
      * the CompoundBeanEntity are out of range then the 'result' field is set to
-     * 'Invalid'.
+     * "xxxxx".
      *
      * @param compoundBeanEntity The data to be used in the calculation
      */
@@ -94,7 +93,7 @@ public class CompoundInterestService {
                                     getCompoundPerTimeUnit());
             compoundBeanEntity.setResult(numberFormat.format(ans));
         } else {
-            compoundBeanEntity.setResult("Invalid");
+            compoundBeanEntity.setResult("xxxxx");
         }
     }
 
@@ -106,9 +105,9 @@ public class CompoundInterestService {
      */
     private boolean validateBean(CompoundBeanEntity compoundBeanEntity) {
         boolean valid = true;
-        if (compoundBeanEntity.getPrincipal() <= 0.0 || compoundBeanEntity.
-                getAnnualInterestRate() <= 0.0 || compoundBeanEntity.
-                        getAnnualInterestRate() >= 1.0 || compoundBeanEntity.
+        if (compoundBeanEntity.getPrincipal() <= 0 || compoundBeanEntity.
+                getAnnualInterestRate() <= 0 || compoundBeanEntity.
+                        getAnnualInterestRate() >= 1 || compoundBeanEntity.
                         getTime() <= 0 || compoundBeanEntity.
                         getCompoundPerTimeUnit() <= 0) {
             valid = false;

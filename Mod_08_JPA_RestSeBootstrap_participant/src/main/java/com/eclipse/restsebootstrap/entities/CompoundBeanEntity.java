@@ -39,7 +39,7 @@ public class CompoundBeanEntity {
         this.annualInterestRate = annualInterestRate;
         this.compoundPerTimeUnit = compoundPerTimeUnit;
         this.time = time;
-        this.result = "Invalid";
+        this.result = "xxxxx";
     }
 
     public Long getId() {

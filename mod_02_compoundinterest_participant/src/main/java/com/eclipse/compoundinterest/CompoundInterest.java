@@ -2,8 +2,6 @@ package com.eclipse.compoundinterest;
 
 import com.eclipse.compoundinterest.bean.CompoundBean;
 import java.text.NumberFormat;
-import java.util.Locale;
-import java.util.logging.Logger;
 
 /**
  * The calculation for compound interest. The input can come from a Java Bean
@@ -22,7 +20,7 @@ public class CompoundInterest {
      * Initialize and configure the numberFormat object
      */
     public CompoundInterest() {
-        numberFormat = NumberFormat.getNumberInstance(Locale.US);
+        numberFormat = NumberFormat.getNumberInstance();
         numberFormat.setMaximumFractionDigits(2);
         numberFormat.setMinimumFractionDigits(2);
         numberFormat.setGroupingUsed(false);
@@ -31,7 +29,7 @@ public class CompoundInterest {
     /**
      * Here is the method that calculates the result. If any of the fields in
      * the CompoundBean are out of range then the 'result' field is set to
-     * 'Invalid'.
+     * 'xxxxx'.
      *
      * @param compoundBean The data to be used in the calculation
      */
@@ -41,16 +39,19 @@ public class CompoundInterest {
     }
 
     /**
-     * Here we validate the four fields in the CompoundBean. If any fail
-     * validation then the result field of the CompoundBean will be set to
-     * 'Invalid'
+     * Here we validate the four fields in the CompoundBean.
      *
      * @param compoundBean The data to be validated
      * @return Were all the fields in the CompoundBean valid? true or false
      */
     private boolean validateBean(CompoundBean compoundBean) {
-
-        // ToDo
-        return true; // replace with your return value
+        boolean valid = true;
+        if (compoundBean.getPrincipal() <= 0 || compoundBean.
+                getAnnualInterestRate() <= 0 || compoundBean.
+                        getAnnualInterestRate() >= 1 || compoundBean.getTime() <= 0 || compoundBean.
+                getCompoundPerTimeUnit() <= 0) {
+            valid = false;
+        }
+        return valid;
     }
 }

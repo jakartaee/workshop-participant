@@ -35,22 +35,34 @@ public class ParameterizedTests {
 
     /**
      * The list of values to use in testing organized in CSV format and the
-     * method to use for each test
+     * method to use for each test.
+     * 
+     * Select the CsvSource based on what the decimal point is in your locale
      *
-     * @param args
      */
     @ParameterizedTest
-    @CsvSource({
-        "100.0, 0.05, 12.0, 5.0, 128.34",
-        "100,0.05,12,5,128.34",
-        "234,0.08,12,3,297.24",
-        "1233,0.03,12,10,1663.75",
-        "34,0.13,12,6,73.86",
-        "-1,0.05,12,5,Invalid",
-        "100,-1,12,5,Invalid",
-        "100,0.05,-1,5,Invalid",
-        "100,0.05,12,-1,Invalid"
-    })
+    // Decimal point is a period
+    @CsvSource(delimiter = '|', textBlock = """
+        100.0 | 0.05 | 12.0 | 5.0 | 128.34
+        234.0 | 0.08 | 12.0 | 3.0 | 297.24
+        1233.0 | 0.03 | 12.0 | 10.0 | 1663.75
+        34.0 | 0.13 | 12.0 | 6.0 | 73.86
+        -1.0 | 0.05 | 12.0 | 5.0 | xxxxx
+        100.0 | -1.0 | 12.0 | 5.0| xxxxx
+        100.0 | 0.05 | -1.0 | 5.0 | xxxxx
+        100.0 | 0.05 | 12.0 | -1.0 | xxxxx
+    """)
+    // Decimal point is a comma
+//    @CsvSource(delimiter = '|', textBlock = """
+//        100,0 | 0,05 | 12,0 | 5,0 | 128,34
+//        234,0 | 0,08 | 12,0 | 3,0 | 297,24
+//        1233,0 | 0,03 | 12,0 | 10,0 | 1663,75
+//        34,0 | 0,13 | 12,0 | 6,0 | 73,86
+//        -1,0 | 0,05 | 12,0 | 5,0 | xxxxx
+//        100,0 | -1,0 | 12,0 | 5,0| xxxxx
+//        100,0 | 0,05 | -1,0 | 5,0 | xxxxx
+//        100,0 | 0,05 | 12,0 | -1,0 | xxxxx
+//    """)
 
     /**
      * This method is called for each line in the CsvSource. It creates a Java
@@ -60,7 +72,7 @@ public class ParameterizedTests {
     public void knownValueLoanCalculationTest_param(ArgumentsAccessor args) {
         data = buildBean(args);
         calc.calculateCompoundInterest(data);
-        assertEquals(args.getString(4), data.getResult());
+        assertEquals(args.getDouble(4), data.getResult());
     }
 
     /**
