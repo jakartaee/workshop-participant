@@ -49,7 +49,7 @@ public class RestClient {
                 "http://localhost:8080/Mod_05_RestServer/").
                 build());
 
-        // Step 4: Pass compoundJson, the input restBean, to the service and 
+        // Step 4: Pass restJson, the input restBean, to the service and 
         // receive a JSON of the bean with the result added 
         String serviceReturnJson
                 = target.path("services").path("hello").request(
