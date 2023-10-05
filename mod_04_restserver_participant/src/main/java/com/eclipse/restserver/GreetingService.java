@@ -23,7 +23,7 @@ public class GreetingService {
     private RestBean restBean;
 
     /**
-     * If an Object is returned then it will be formatted as a JSON string. No need for
+     * If a JavaBean style object is returned then it will be formatted as a JSON string. No need for
      * @Produces({MediaType.APPLICATION_JSON})    
      * 
      * @param name
