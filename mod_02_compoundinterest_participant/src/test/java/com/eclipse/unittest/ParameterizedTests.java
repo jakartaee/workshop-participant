@@ -79,7 +79,7 @@ public class ParameterizedTests {
     public void knownValueLoanCalculationTest_param(ArgumentsAccessor args) {
         data = buildBean(args);
         calc.calculateCompoundInterest(data);
-        assertEquals(args.getDouble(4), data.getResult());
+        assertEquals(args.getString(4), data.getResult());
     }
 
     /**
