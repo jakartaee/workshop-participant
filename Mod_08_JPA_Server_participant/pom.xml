@@ -53,6 +53,7 @@
             <version>${jakartaee-api.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <!-- The JPA dependencies -->   
         <dependency>
             <!-- The EclipseLink implementation -->
