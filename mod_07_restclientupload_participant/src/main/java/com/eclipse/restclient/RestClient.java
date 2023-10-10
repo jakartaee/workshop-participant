@@ -39,8 +39,6 @@ public class RestClient {
 
         // ToDo
         
-        //LOG.log(Level.INFO, "callFileUploadService response = {0}", response.getStatus());
-        
         return null; //response;
     }     
 

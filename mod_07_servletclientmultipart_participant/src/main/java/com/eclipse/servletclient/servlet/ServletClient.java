@@ -1,6 +1,5 @@
 package com.eclipse.servletclient.servlet;
 
-//import com.eclipse.servletclient.bean.CompoundBean;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -36,9 +35,7 @@ public class ServletClient extends HttpServlet {
             ServletClient.class.getName());
 
     /**
-     * Handles the HTTP GET request using the query parameters to construct an
-     * object of type CompounbBean that is sent to the Mod_06_RestServer for the
-     * calculation. The result is then displayed in a simple web page.
+     * Handles the HTTP GET request by calling upon callFileUploadService
      *
      * @param request servlet request
      * @param response servlet response
@@ -54,10 +51,10 @@ public class ServletClient extends HttpServlet {
     }
 
     /**
-     * This calls the Compound Interest web service running as a separate
+     * This calls the FileUploadService  running as a separate
      * process on the server or another server.
      *
-     * @return compoundBean contains the result
+     * @return Response indication outcome
      * @throws java.io.IOException
      */
     public Response callFileUploadService() throws IllegalStateException, IOException {

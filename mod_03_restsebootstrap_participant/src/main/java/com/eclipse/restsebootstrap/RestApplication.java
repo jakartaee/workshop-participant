@@ -13,4 +13,7 @@ import java.util.Set;
 // This is the path of the services. It follows the URL as in http://localhost:8080/services/ 
 @ApplicationPath("services")
 public class RestApplication extends Application {
+    
+    // ToDo
+    
 }

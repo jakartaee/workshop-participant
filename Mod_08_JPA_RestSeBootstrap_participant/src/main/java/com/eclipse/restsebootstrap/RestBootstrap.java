@@ -28,7 +28,13 @@ public class RestBootstrap {
         
         // Start the embedded server and the web service
         SeBootstrap.start(app, configuration);
-        // Keep the service running until the application is stopped
-        Thread.currentThread().join();
+
+        // Used when the service must run until the process is killed
+        // Thread.currentThread().join();
+
+        // Used when you want to end the service by pressing Enter
+        System.out.println("Press Enter to end this process"); 
+        System.in.read();
+        System.exit(0);
     }
 }

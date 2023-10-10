@@ -20,4 +20,7 @@ URL as in http://localhost:8080/services/hello
 */
 @Path("hello")
 public class GreetingService {
+    
+    // ToDo
+    
 }
