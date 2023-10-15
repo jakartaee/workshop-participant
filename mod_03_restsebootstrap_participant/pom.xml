@@ -163,6 +163,7 @@
                 </configuration>
             </plugin>   
         </plugins>
-    </build>        
+    </build>
+    <name>Mod_03_RestSeBootstrap_participant</name>
 </project>
 
