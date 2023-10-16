@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.1" xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence 
+             https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd">
+    <persistence-unit name="workshopPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>com.eclipse.restsebootstrap.entities.CompoundBeanEntity</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="jdbc:derby://localhost:1527/calcdb" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:derby://localhost:1527/calcdb"/>
+            <property name="jakarta.persistence.jdbc.user" value="omni"/>
+            <property name="jakarta.persistence.jdbc.password" value="Big6Potato"/>
+        </properties>
+    </persistence-unit>
+</persistence>
