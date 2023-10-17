@@ -28,8 +28,8 @@ public class CompoundServiceClient {
     private static final Logger LOG = Logger.getLogger(
             CompoundServiceClient.class.getName());
     /*
-     * The curremt instance of the data bean managed by CDI. It will contain 
-     * the data enetered into the form
+     * The current instance of the data bean managed by CDI. It will contain 
+     * the data entered into the form
      */
     @Inject
     private CompoundBean compoundBean;
