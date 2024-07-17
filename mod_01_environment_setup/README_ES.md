@@ -153,7 +153,7 @@ Añada la siguiente línea sustituyendo **JAVA_HOME** por la ubicación en la qu
 
 ###### ` export JAVA_HOME=/Users/javadev/java/jdk-17.07+7/Contents/Home`
 
-``Sustituye **javadev** por tu nombre de usuario.
+Sustituye **javadev** por tu nombre de usuario.
 
 Si el **PATH** es incorrecto, añada esta línea a **.profile**.
 
