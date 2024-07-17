@@ -1,5 +1,5 @@
 
-* [Módulo 1: Configuración del Entorno](mod_01_environment_setup/README.md)
+* [Módulo 1: Configuración del Entorno](mod_01_environment_setup/README_ES.md)
 * [Módulo 2: Interés compuesto](mod_02_compoundinterest_participant/README.md)
 * [Módulo 3: Bootstrap SE simple](mod_03_restsebootstrap_participant/README.md)
 * [Módulo 4: Servidor REST simple](mod_04_restserver_participant/README.md)
