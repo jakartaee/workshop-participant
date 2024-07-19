@@ -1,0 +1,63 @@
+Todos los comandos CURL
+
+Módulo 3:
+CLI-GET All OS
+curl http://localhost:8080/services/hello
+curl http://localhost:8080/services/hello?name=Ken
+curl "http://localhost:8080/services/compound?principal=100&annualInterestRate=0.05&compoundPerTimeUnit=12&time=5"
+
+CLI-POST All OS
+curl -i -X POST http://localhost:8080/services/hello
+curl -i -X POST http://localhost:8080/services/hello?name=Ken
+
+Browser:
+http://localhost:8080/services/hello?name=Ken
+
+Módulo 4:
+
+CLI-GET All OS
+
+Participante
+curl http://localhost:8080/Mod_04_RestServer_participant/services/hello
+curl "http://localhost:8080/Mod_04_RestServer_participant/services/compound?principal=100&annualInterestRate=0.05&compoundPerTimeUnit=12&time=5"
+
+CLI-POST Linux/MacOS
+
+Participante
+curl -i -X POST --header "Content-Type: application/json" --data '{ "principal": 100.00,"annualInterestRate": 0.05, "compoundPerTimeUnit": 12.0, "time": 5.0, "result": "0.0" }' http://localhost:8080/Mod_04_RestServer_participant/services/compound
+
+CLI-POST Windows
+
+Participante
+curl -i -X POST --header "Content-Type: application/json" --data "{ \"principal\": 100.00, \"annualInterestRate\": 0.05, \"compoundPerTimeUnit\": 12.0, \"time\": 5.0, \"result\": \"0.0\" }" http://localhost:8080/Mod_04_RestServer_participant/services/compound
+
+Módulo 5:
+
+No CLI
+
+Module 6:
+
+No CLI
+
+Módulo 7:
+
+CLI-POST All OS
+
+Participante
+curl -X POST -F name=XXXX.jpg -F part=@C:/temp/XXXX.jpg http://localhost:8080/Mod_07_MultiPart_Server_participant/services/multiparts/
+*** Correct the name, XXXX.jpg, and file path, C:/temp/XXXX.jpg, to your OS. 
+
+Módulo 8:
+
+Mod_08_JPA_RestSeBootstrap_participant
+CLI - GET All OS
+curl "http://localhost:8080/services/compound?principal=100.00&annualInterestRate=0.05&compoundPerTimeUnit=12.0&time=5.0"
+
+
+Mod_08_JPA_Server_participant
+
+CLI - POST Linux/MacOS
+curl -i -X POST --header "Content-Type: application/json" --data '{\"principal": 100.00, "annualInterestRate": 0.05, "compoundPerTimeUnit": 12.0, "time": 5.0, "result": "0.0" } ' http://localhost:8080/Mod_08_JPA_Server_participant/services/compound
+CLI - POST Windows
+curl -i -X POST --header "Content-Type: application/json" --data "{ \"principal\": 100.00, \"annualInterestRate\": 0.05, \"compoundPerTimeUnit\": 12.0, \"time\": 5.0, \"result\": \"0.0\" }" http://localhost:8080/Mod_08_JPA_Server_participant/services/compound
+

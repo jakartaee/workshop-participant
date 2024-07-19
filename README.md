@@ -1,5 +1,7 @@
 # Jakarta RESTful Web Services Workshop
 
+**Para instrucciones en español, pulsar [aquí](README_ES.md)**
+
 * [Module 1: Environment Setup](mod_01_environment_setup/README.md)
 * [Module 2: Compound Interest](mod_02_compoundinterest_participant/README.md)
 * [Module 3: Simple SE Bootstrap](mod_03_restsebootstrap_participant/README.md)
