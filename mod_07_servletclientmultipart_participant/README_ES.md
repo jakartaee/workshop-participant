@@ -1,6 +1,7 @@
 # Jakarta RESTful Web Services 3.1 Workshop Participant
 
 ## Módulo 7: Carga de Archivo con Multiparte
+
 ![A diagram of a software application Description automatically generated](media/e7e29dee0cd3b729bbc8b91af1bdc888.png)
 
 Hasta ahora en este taller hemos escrito código para servicios GET y servicios POST. Los servicios GET aceptan cadenas de consulta añadidas a la URL del servicio. Esto significa que hay un número máximo de caracteres permitidos.
@@ -25,10 +26,9 @@ Hay tres proyectos en este módulo. El primero es el servidor `MultiPart` al que
 
 El archivo pom es el mismo para todos los módulos basados en servidor con una única dependencia y sin plugins.
 
-###  Veamos el archivo beans.xml
+### Veamos el archivo beans.xml
 
 Este archivo es el mismo para todos los ejemplos.
-
 ### Veamos el web.xml
 
 Este archivo es idéntico al web.xml del Mod 04.
@@ -85,9 +85,11 @@ Construye y despliega el servicio. Puedes probarlo usando cURL con (una línea):
 curl -X POST -F name=XXXX.jpg -F part=@C:/temp/XXXX.jpg http://localhost:8080/Mod_07_MultiPart_Server_participant/services/multiparts/
 ```
 
+
 Esta línea es para Windows así que por favor cambie el nombre y la parte para que funcione en su sistema.
 
 Ahora veamos a los clientes.
+
 
 ### Los clientes de carga de archivos de escritorio y servlet
 
@@ -126,6 +128,7 @@ Aunque rara vez nos preocupamos por el orden de las dependencias, el orden puede
 
 El código cliente para utilizar el servicio es prácticamente idéntico en ambos clientes. La única diferencia es que a la versión de escritorio se le pasa el nombre del archivo y la ruta como parámetros del método, mientras que la versión Servlet tiene el nombre del archivo y la ruta codificados. Aquí está el código fuente:
 
+
 ```
 public Response callFileUploadService(String fileName, String path)
    throws IllegalStateException, IOException {
@@ -161,6 +164,7 @@ public Response callFileUploadService(String fileName, String path)
       MediaType.MULTIPART_FORM_DATA);
 
    // Step 8: Paso 8:Hacer una petición POST a FileUploadService con la Entidad
+
    Response response =
       target.request(MediaType.MULTIPART_FORM_DATA).post(entity);
    
