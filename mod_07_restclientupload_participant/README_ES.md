@@ -1,6 +1,7 @@
 # Jakarta RESTful Web Services 3.1 Workshop Participant
 
 ## Módulo 7: Carga de Archivo con Multiparte
+
 ![A diagram of a software application Description automatically generated](media/e7e29dee0cd3b729bbc8b91af1bdc888.png)
 
 Hasta ahora en este taller hemos escrito código para servicios GET y servicios POST. Los servicios GET aceptan cadenas de consulta añadidas a la URL del servicio. Esto significa que hay un número máximo de caracteres permitidos.
@@ -15,7 +16,7 @@ Trabajaremos con estos tres proyectos:
 -   `mod_07_restclientupload_participant`
 -   `mod_07_servletclientmultipart_participant`
 
-**TLos Proyectos**
+**El Proyecto**
 
 Hay tres proyectos en este módulo. El primero es el servidor `MultiPart` al que los clientes subirán un fichero.
 
@@ -25,15 +26,14 @@ Hay tres proyectos en este módulo. El primero es el servidor `MultiPart` al que
 
 El archivo pom es el mismo para todos los módulos basados en servidor con una única dependencia y sin plugins.
 
-###  Veamos el archivo beans.xml
+### Veamos el archivo beans.xml
 
 Este archivo es el mismo para todos los ejemplos.
-
 ### Veamos el web.xml
 
 Este archivo es idéntico al web.xml del Mod 04.
 
-### Let’s look at the code.
+### Miremos el código.
 
 Comenzamos declarando el tipo de solicitud
 
@@ -85,9 +85,11 @@ Construye y despliega el servicio. Puedes probarlo usando cURL con (una línea):
 curl -X POST -F name=XXXX.jpg -F part=@C:/temp/XXXX.jpg http://localhost:8080/Mod_07_MultiPart_Server_participant/services/multiparts/
 ```
 
+
 Esta línea es para Windows así que por favor cambie el nombre y la parte para que funcione en su sistema.
 
 Ahora veamos a los clientes.
+
 
 ### Los clientes de carga de archivos de escritorio y servlet
 
@@ -102,14 +104,14 @@ El archivo pom del servlet sólo tiene una dependencia. El pom de Java SE deskto
 ```
 <dependencies>
    <dependency>
-      <!-- This dependency handles MessageBodyWriters. It must be 
-           first -->
+      <!-- Esta dependencia se encarga de MessageBodyWriters. Debe estar 
+           primero -->
       <groupId>org.glassfish.jersey.media</groupId>
       <artifactId>jersey-media-multipart</artifactId>
       <version>3.1.3</version>
    </dependency>
    <dependency>
-      <!-- Client to access a service -->
+      <!-- Cliente para acceder a un servicio -->
       <groupId>org.glassfish.jersey.core</groupId>
       <artifactId>jersey-client</artifactId>
       <version>3.1.3</version>
@@ -126,41 +128,43 @@ Aunque rara vez nos preocupamos por el orden de las dependencias, el orden puede
 
 El código cliente para utilizar el servicio es prácticamente idéntico en ambos clientes. La única diferencia es que a la versión de escritorio se le pasa el nombre del archivo y la ruta como parámetros del método, mientras que la versión Servlet tiene el nombre del archivo y la ruta codificados. Aquí está el código fuente:
 
+
 ```
 public Response callFileUploadService(String fileName, String path)
    throws IllegalStateException, IOException {
 
-   // Step 1: Create a Client object
+   // Paso 1: Crear un objeto Cliente
    Client client = ClientBuilder.newBuilder().build();
 
-   // Step 2: Create a WebTarget object that points to the service
+   // Paso 2: Crear un objeto WebTarget que apunte al servicio
    WebTarget target = client.target(UriBuilder.fromUri(
       "http://localhost:8080/Mod_07_MultiPart_Server_participant/
        services/multiparts"));
 
-   // Step 3: Create an InputStream for the file to upload
+   // Paso 3: Crear un InputStream para el fichero a subir
    File initialFile = new File(path + fileName);
    InputStream pictureInputStream = new FileInputStream(initialFile);
 
-   // Step 4: Create an EntityPart to hold the InputStream
+   // Paso 4: Crear una EntityPart para contener el InputStream
    EntityPart part = EntityPart.withName("part").fileName(fileName)
       .content(pictureInputStream)
       .mediaType(MediaType.APPLICATION_OCTET_STREAM)
       .build();
 
-   // Step 5: Create an EntityPart to hold the file name
+   // Paso 5: Crear una EntityPart que contenga el nombre del fichero
    EntityPart name =    
       EntityPart.withName("name").content(fileName).build();
 
-   // Step 6: Combine the EntityParts into a GenericEntity
+   // Paso 6: Combinar las EntityParts en una GenericEntity
    GenericEntity genericEntity =
       new GenericEntity<List<EntityPart>>(List.of(name, part)) {};
 
-   // Step 7: Convert the GenericEntity into an Entity
+   // Paso 7: Convertir la GenericEntity en una Entidad
    Entity entity = Entity.entity(genericEntity,
       MediaType.MULTIPART_FORM_DATA);
 
-   // Step 8:Request the POST FileUploadService with the Entity
+   // Step 8: Paso 8:Hacer una petición POST a FileUploadService con la Entidad
+
    Response response =
       target.request(MediaType.MULTIPART_FORM_DATA).post(entity);
    
@@ -171,17 +175,17 @@ public Response callFileUploadService(String fileName, String path)
 En el código del Servlet los pasos 3, 4 y 5 son diferentes debido a la codificación dura del nombre y la ruta. Los pasos 1, 2, 6, 7 y 8 no se modifican:
 
 ```
-   // Step 3: Create an InputStream for the file to upload
+   // Paso 3: Crear un InputStream para el fichero a subir
    File initialFile = new File("C:/temp/vwvan1974.jpg");
 
-   // Step 4: Create an EntityPart to hold the InputStream
+   // Paso 4: Crear una EntityPart para contener el InputStream
    EntityPart part =   
       EntityPart.withName("part").fileName("vwvan1978.jpg")
          .content(pictureInputStream)
          .mediaType(MediaType.APPLICATION_OCTET_STREAM)
          .build();
 
-   // Step 5: Create an EntityPart to hold the file name
+   // Paso 5: Crear una EntityPart que contenga el nombre del fichero
    EntityPart name =
       EntityPart.withName("name").content("vwvan1974.jpg").build();
 ```

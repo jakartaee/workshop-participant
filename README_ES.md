@@ -12,8 +12,8 @@
    - [Cliente Servlet](mod_06_servletclient_participant/README_ES.md)
 * Módulo 7: Carga de Archivo
    - [Servidor](mod_07_multipart_server_participant/README_ES.md)
-   - [Cliente REST (subida de archivo)](mod_07_restclientupload_participant/README.md)
-   - [Cliente Servlet(subida de archivo)](mod_07_servletclientmultipart_participant/README.md)
+   - [Cliente REST (subida de archivo)](mod_07_restclientupload_participant/README_ES.md)
+   - [Cliente Servlet(subida de archivo)](mod_07_servletclientmultipart_participant/README_ES.md)
 * Módulo 8: Persistencia
-   - [Persistence (SeBootstrap)](mod_08_JPA_RestSeBootstrap_participant/README.md)
-   - [Persistence](mod_08_JPA_Server_participant/README.md)
+   - [Persistencia (SeBootstrap)](mod_08_JPA_RestSeBootstrap_participant/README_ES.md)
+   - [Persistencia](mod_08_JPA_Server_participant/README_ES.md)
